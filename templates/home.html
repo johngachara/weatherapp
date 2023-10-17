@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        .container {
+            margin-top: 150px;
+            border: 1px solid navy;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <h1 class="text-center">Welcome To My Weather App</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" name="locationinput" placeholder="Enter Location">
+        </div>
+        <button class="btn btn-primary" id="searchButton"type="submit">Search</button>
+</form>
+        <div class="weather-info">
+            <h2 id="locationName">{{ location }}</h2>
+            <p id="temperature">Temperature: {{currentweather}} Degrees</p>
+            <p id="weatherCondition">Weather Conditions: {{ conditions }}</p>
+            <p id="datetoday">Time of observation: {{ date }}</p>
+            <p id="timezone">Timezone: {{ timezone }}</p>
+        </div>
+        <h3 style="margin-top: 100px;">Powered by visualcrossing weather API</h3>
+        <p>2023&copy;JOHN GACHARA - SOFTWARE ENGINEER</p>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
